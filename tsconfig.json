@@ -26,7 +26,7 @@
     },
     "strictFunctionTypes": true,
     "noImplicitReturns": true,
-    "noImplicitThis": true,
+    "noImplicitThis": true
   },
   "include": ["./src"]
 }
