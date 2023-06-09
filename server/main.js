@@ -33,13 +33,13 @@ schedule.scheduleJob("0/7 * * * * *", () => {
 });
 
 if (process.env.NODE_ENV === "development") {
-  logger.info("Server is running on development mode");
+  logger.info("Server is running on development mode")
 
-  const compiler = webpack(config);
-  const devServer = new WebpackDevServer(compiler, config.devServer);
+  const compiler = webpack(config)
+  const devServer = new WebpackDevServer(compiler, config.devServer)
 
   devServer.listen(devPort, () => {
-    logger.info("webpack-dev-server is listening on port", devPort);
+    logger.info("webpack-dev-server is listening on port", devPort)
   });
 }
 

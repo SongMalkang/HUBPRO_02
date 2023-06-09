@@ -42,7 +42,10 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
     "@heroicons/react": "2.0.13",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.9",
     "axios": "^1.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"

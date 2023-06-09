@@ -1,7 +1,15 @@
+import { Page } from "components/page/Page";
 import styles from "./app.module.css";
+import React, { ReactElement } from "react";
 
-const App = (): JSX.Element => {
-  return <main className={styles.main}>d</main>;
+import "../theme/theme.css"
+
+const App : React.FC = (): ReactElement => {
+  return (
+    <main className={styles.main}>
+      <Page />
+    </main>
+  )
 };
 
 export default App;
