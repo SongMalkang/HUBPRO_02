@@ -4,8 +4,8 @@
     radial-gradient(hsla(0, 0%, 84.3%, 0.1) 1px, transparent 0);
   background-size: 50px 50px;
   background-position: 0 0, 25px 25px;
-  /* -webkit-animation: slide 2s linear infinite;
-  animation: slide 4s linear infinite; */
+  -webkit-animation: slide 2s linear infinite;
+  animation: slide 4s linear infinite;
 }
 
 @keyframes slide {
