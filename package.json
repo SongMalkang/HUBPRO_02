@@ -37,6 +37,7 @@
   },
   "scripts": {
     "start": "vite",
+    "dev": "concurrently \"yarn start\" \"cd server && yarn start\"",
     "build": "vite build",
     "test": "jest",
     "postinstall": "husky install"
@@ -47,6 +48,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "axios": "^1.4.0",
+    "concurrently": "^8.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^6.0.0-rc.3"
