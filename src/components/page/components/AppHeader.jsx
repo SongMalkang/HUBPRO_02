@@ -25,7 +25,7 @@ const AppHeader = ({ pageFlag, setPageFlag }) => {
   }, []);
 
   return (
-    <HeaderContainer className="flex flex-row space-x-10 items-center w-screen h-24 bg-zinc-800 text-center text-yellow-400 text-4xl font-bold">
+    <HeaderContainer className="flex flex-row space-x-10 items-center w-screen h-24 bg-zinc-800 text-center text-yellow-400 text-5xl font-bold">
 
       <div className="w-1/12 ml-4 min-h-10">
         <img className="absolute left-5 top-3 w-40" src={logo} onClick={() => setPageFlag(1)}/>

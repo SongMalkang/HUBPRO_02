@@ -25,10 +25,11 @@ const Home = () => {
   const TableRow = () => (
     <tr>
       {fields.map((field) => (
-        <td className="text-center border border-zinc-700 outline-zinc-700" key={field}>
+        <td className="text-center align-middle border border-zinc-700 outline-zinc-700" key={field}>
           {tableLog.map((x) => (
-            <div className="text-center h-32 pt-4 border-t-gray-600 border-b-gray-600 text-4xl font-bold" key={x.module_idx}>
-              <span className="align-middle">{field === "status" ? x.status : (field === "A1" || field === "A5") ? `${x[field].toFixed(1)} %` : (field === "A2" || field === "A3" || field === "A4") ? `${x[field].toFixed(0)} ppm` : x[field]}</span>
+            <div className="h-32 pt-4 text-4xl font-bold" key={x.module_idx}>
+              <span className="align-middle">{field === "status" ? x.status : (field === "A1" || field === "A5") ? x[field].toFixed(1) : (field === "A2" || field === "A3" || field === "A4") ? x[field].toFixed(0) : x[field]}</span>
+              <span className="align-bottom text-2xl">{(field === "A2" || field === "A3" || field === "A4") ? ' ppm' :  (field === "A1" || field === "A5" || field === "battery") ? ' %' : ''}</span>
             </div>
           ))}
         </td>
@@ -46,10 +47,10 @@ const Home = () => {
   
 
   return (
-    <ContentsBox className="flex flex-row mt-8 h-[44rem] bg-zinc-800 w-screen overflow-hidden text-3xl text-white">
-      <table className="table-auto w-screen outline-zinc-300 outline-2">
+    <ContentsBox className="flex flex-row mt-8 h-[52rem] overflow-y-scroll overflow-x-hidden w-screen text-3xl text-white">
+      <table className="table-auto w-screen bg-zinc-800 outline-zinc-300 outline-2">
         {/* 칼럼의 개수, 데이터 종류 등 설정 가능하도록 */}
-        <thead className='p-10'>
+        <thead className='p-10 table-fixed'>
           <tr className='h-20'>
             <th className="w-1/12 border border-zinc-700 outline-zinc-700">장치명</th>
             <th className="w-1/12 border border-zinc-700 outline-zinc-700">상태</th>
