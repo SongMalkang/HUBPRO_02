@@ -40,14 +40,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/gas/get/recent', async (req, res) => {
+  let connection;
   try {
     res.header("Access-Control-Allow-Origin", "*")
-    const connection = await mysql.createConnection(dbConfig)
-    // const connection = pool.promise();
+    connection = await mysql.createConnection(dbConfig);
 
     const [rows] = await connection.execute(
       `
-      SELECT * FROM gas_log_tb gltb left join module_tb mtb ON mtb.module_idx = gltb.module_idx order by log_idx desc limit 100
+      SELECT * FROM gas_log_tb gltb left join module_tb mtb ON mtb.module_idx = gltb.module_idx order by log_idx desc limit 4
       `
     )
 
@@ -60,6 +60,10 @@ app.get('/gas/get/recent', async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send('Internal server error');
+  } finally {
+    if (connection) {
+      await connection.end()
+    }
   }
 });
 
