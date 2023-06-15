@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import criterion from './functions/criterion'
+import { MoonIcon } from '@heroicons/react/24/outline'
 
 const Home = () => {
   const [tableLog, setTableLog] = useState([])
@@ -32,8 +33,8 @@ const Home = () => {
         <td className="text-center align-middle border border-zinc-700 outline-zinc-700" key={field}>
           {tableLog.map((x) => (
             <div className="h-32 pt-4 text-4xl font-bold" key={x.module_idx}>
-              <span className="align-middle">{field === "status" ? x.status : (field === "A1" || field === "A5") ? x[field].toFixed(1) : (field === "A2" || field === "A3" || field === "A4") ? x[field].toFixed(0) : x[field]}</span>
-              <span className="align-bottom text-2xl">{(field === "A2" || field === "A3" || field === "A4") ? ' ppm' :  (field === "A1" || field === "A5" || field === "battery") ? ' %' : ''}</span>
+              <div className="align-middle">{field === "status" ? x.status : (field === "A1" || field === "A5") ? x[field].toFixed(1) : (field === "A2" || field === "A3" || field === "A4") ? x[field].toFixed(0) : x[field]}</div>
+              <div className="align-bottom text-2xl">{(field === "A2" || field === "A3" || field === "A4") ? ' ppm' :  (field === "A1" || field === "A5" || field === "battery") ? ' %' : ''}</div>
             </div>
           ))}
         </td>

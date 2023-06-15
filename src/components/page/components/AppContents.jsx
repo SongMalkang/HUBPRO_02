@@ -1,7 +1,7 @@
 import Config from "components/config/Config"
 import DataTable from "components/dataTable/DataTable"
 import GraphPage from "components/graphPage/GraphPage"
-import Home from "components/home/Home2"
+import Home from "components/home/Home"
 
 const AppContents = ({ pageFlag }) => {
 

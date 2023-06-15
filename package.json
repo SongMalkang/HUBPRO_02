@@ -39,7 +39,7 @@
     "start": "vite",
     "start77": "vite --host=192.168.77.41 --port=3000",
     "dev": "concurrently \"yarn start\" \"cd server && yarn start\"",
-    "dev77": "concurrently \"yarn start\" \"cd server && yarn start\"",
+    "dev77": "concurrently \"yarn start77\" \"cd server && yarn start\"",
     "build": "vite build",
     "test": "jest",
     "postinstall": "husky install"
