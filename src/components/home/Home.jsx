@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import criterion from './functions/criterion'
 
 const Home = () => {
   const [tableLog, setTableLog] = useState([])
-  const [criterion, setCriterion] = useState([])
 
   useEffect(() => { // 5초마다 데이터를 가져옴
     const fetchData = async () => {
@@ -19,6 +19,10 @@ const Home = () => {
       clearInterval(interval);
     };
   }, []);
+
+  useEffect(() => {
+    criterion()
+  }, [])
 
   const fields = ["module_name", "status", "A1", "A2", "A3", "A4", "A5", "battery"];
 
@@ -47,10 +51,10 @@ const Home = () => {
   
 
   return (
-    <ContentsBox className="flex flex-row mt-8 h-[52rem] overflow-y-scroll overflow-x-hidden w-screen text-3xl text-white">
+    <ContentsBox className="flex flex-row mt-8 h-[52rem] overflow-x-hidden w-screen text-3xl text-white">
       <table className="table-auto w-screen bg-zinc-800 outline-zinc-300 outline-2">
         {/* 칼럼의 개수, 데이터 종류 등 설정 가능하도록 */}
-        <thead className='p-10 table-fixed'>
+        <thead className=''>
           <tr className='h-20'>
             <th className="w-1/12 border border-zinc-700 outline-zinc-700">장치명</th>
             <th className="w-1/12 border border-zinc-700 outline-zinc-700">상태</th>
@@ -67,7 +71,7 @@ const Home = () => {
               <span> / </span>
               <span className='text-red-600'> 위험 알람</span>
             </th>
-            <th className="w-1/24 text-center align-middle border border-zinc-700 outline-zinc-700">-</th>
+            <th className="w-1/24 text-center align-middle border border-zinc-700 outline-zinc-700"></th>
             <AlarmCell warningText="19.5% 미만 / 23.5% 이상" dangerText="18% 미만 / 24% 이상" />
             <AlarmCell warningText="5000 ppm 이상" dangerText="8000 ppm 이상" />
             <AlarmCell warningText="30 ppm 이상" dangerText="50 ppm 이상" />

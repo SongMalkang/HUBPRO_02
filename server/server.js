@@ -67,6 +67,29 @@ app.get('/gas/get/recent', async (req, res) => {
   }
 });
 
+app.get('/criterion/get/value', async (req, res) => {
+  let connection;
+  try {
+    res.header("Access-Control-Allow-Origin", "*")
+    connection = await mysql.createConnection(dbConfig);
+
+    const [rows] = await connection.execute(
+      `
+      SELECT * FROM criterion_tb where enable = 1;
+      `
+    )
+
+    res.status(200).json(rows);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal server error');
+  } finally {
+    if (connection) {
+      await connection.end()
+    }
+  }
+});
+
 // app.post('/accident/add', async (req, res) => {
 //   try {
 //     res.header("Access-Control-Allow-Origin", "*"); // CORS 에러때문에 추가함

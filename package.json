@@ -1,5 +1,5 @@
 {
-  "name": "hubpro_02",
+  "name": "hubpro",
   "version": "1.0.0",
   "description": "Starter template for Vite with React (TypeScript). Supports Tailwind with CSS-Modules. Jest and @react/testing-library configured and ready to go. Also ESLint, Prettier, Husky, Commit-lint and Atomic Design for components.",
   "homepage": "https://github.com/jvidalv/vital#readme",
@@ -37,7 +37,9 @@
   },
   "scripts": {
     "start": "vite",
+    "start77": "vite --host=192.168.77.41 --port=3000",
     "dev": "concurrently \"yarn start\" \"cd server && yarn start\"",
+    "dev77": "concurrently \"yarn start\" \"cd server && yarn start\"",
     "build": "vite build",
     "test": "jest",
     "postinstall": "husky install"
@@ -51,6 +53,7 @@
     "concurrently": "^8.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "serve": "^14.2.0",
     "styled-components": "^6.0.0-rc.3"
   },
   "devDependencies": {
